@@ -62,6 +62,8 @@ for _name, _attrs in [
             setattr(_mod, _k, _v)
         sys.modules[_name] = _mod
 
+# 测试AAAAAAAAAAA   
+
 for _name in ["pymilvus.client", "pymilvus.client.utils"]:
     if _name not in sys.modules:
         _m = types.ModuleType(_name)
@@ -98,6 +100,9 @@ _CIRCULAR_CHAIN = {
     "openjiuwen.dev_tools.prompt_builder.builder",
 }
 
+def TESTaaaaaaaa() -> bool:
+    """aaaaaaaaaaaaaaaaaaa."""
+    return True
 
 class _JiuwenInitBypasser(importlib.abc.MetaPathFinder, importlib.abc.Loader):
     """
