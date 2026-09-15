@@ -1,0 +1,96 @@
+# CodeRabbit configuration for nexent
+# Docs: https://docs.coderabbit.ai/reference/configuration
+# This file is auto-detected from the feature branch under review.
+# Tuning goal: keep signal high, cut noise on large PRs.
+
+language: en-US
+
+reviews:
+  # chill = fewer, higher-signal comments (recommended default to limit noise)
+  profile: chill
+  request_changes_workflow: false
+  high_level_summary: true
+  poem: false
+  review_status: true
+  review_details: false
+  collapse_walkthrough: true
+  sequence_diagrams: false
+
+  # Only auto-review ready PRs targeting these bases
+  drafts: false
+  base_branches:
+    - "develop"
+    - "main"
+  ignore_title_keywords:
+    - "wip"
+    - "draft"
+  ignore_usernames: []
+
+  auto_review:
+    enabled: true
+
+  # Ignore generated / vendored / lockfiles / migrations / docs / test scaffolding
+  path_filters:
+    - "!**/node_modules/**"
+    - "!**/dist/**"
+    - "!**/build/**"
+    - "!**/migrations/**"
+    - "!**/vendor/**"
+    - "!**/*.lock"
+    - "!**/package-lock.json"
+    - "!**/pnpm-lock.yaml"
+    - "!**/yarn.lock"
+    - "!**/requirements*.txt"
+    - "!**/uv.lock"
+    - "!**/*.md"
+    - "!**/docs/**"
+    - "!**/doc/**"
+    - "!**/assets/**"
+    - "!**/test/**"
+    - "!**/tests/**"
+
+  path_instructions:
+    - path: "backend/**/*.py"
+      instructions: |
+        Python backend (FastAPI). Enforce: type hints on public functions, never use a bare
+        `except:`, prefer `logging` over `print`, and always set timeouts on network/LLM calls.
+        For transient LLM/network errors, reuse the existing retry + exponential backoff helpers
+        in backend/utils/llm_utils.py instead of ad-hoc loops. Watch for unclosed resources
+        (files/sessions/clients), silent failure paths, and missing idempotency on retry.
+    - path: "sdk/**/*.py"
+      instructions: |
+        SDK surface. Keep public APIs backward-compatible; flag breaking changes explicitly.
+        Prefer typed, explicit error classes over raising generic Exception.
+    - path: "frontend/**/*.{ts,tsx,js,jsx}"
+      instructions: |
+        Frontend (TypeScript/React). Flag missing null/undefined guards, unsafe `any`,
+        side effects during render, and unhandled promise rejections.
+
+  tools:
+    ruff:
+      enabled: true
+    shellcheck:
+      enabled: true
+    semgrep:
+      enabled: true
+    gitleaks:
+      enabled: true
+    osvScanner:
+      enabled: true
+    pylint:
+      enabled: false
+    markdownlint:
+      enabled: false
+
+chat:
+  auto_reply: true
+
+knowledge_base:
+  opt_out: false
+  web_search:
+    enabled: false
+  code_guidelines:
+    enabled: true
+  learnings:
+    scope: auto
+    approval_delay: 0
