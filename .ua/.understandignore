@@ -1,0 +1,144 @@
+# .understandignore — patterns for files/dirs to exclude from analysis
+# Syntax: same as .gitignore (globs, # comments, ! negation, trailing / for dirs)
+# Lines below are suggestions — uncomment to activate.
+# Use ! prefix to force-include something excluded by defaults.
+#
+# Built-in defaults (always excluded unless negated):
+#   node_modules/, .git/, dist/, build/, obj/, *.lock, *.min.js, etc.
+#
+
+# --- From .gitignore (uncomment to exclude) ---
+
+/.env
+*.DS_Store
+*.egg-info
+*.pyc
+sdk/build
+uploads/
+# /sdk/nexent/core/nlp/baidu_stopwords.txt
+# docker/elasticsearch
+# docker/minio
+# docker/postgresql
+# docker/redis_data
+# docker/uploads
+# docker/openssh-server
+# docker/volumes/db/data
+# docker/.env
+# docker/.env.generated
+# deploy/env/monitoring.env
+# docker/.run
+# docker/deploy.options
+# k8s/helm/deploy.options
+# scripts/deployment/local-config.yaml
+# scripts/deployment/generated/
+# k8s/helm/nexent/generated-values.yaml
+# k8s/helm/nexent/generated-runtime-values.yaml
+# k8s/helm/nexent/generated-secrets-values.yaml
+# k8s/helm/nexent/generated-persistence-values.yaml
+# deploy/docker/deploy.options
+# deploy/docker/openssh-server
+# deploy/k8s/deploy.options
+# deploy/common/local-config.yaml
+# deploy/common/generated/
+# deploy/docker/.env.generated
+# deploy/docker/compose/docker-compose.generated.yml
+# deploy/k8s/helm/nexent/generated-values.yaml
+# deploy/k8s/helm/nexent/generated-runtime-values.yaml
+# deploy/k8s/helm/nexent/generated-secrets-values.yaml
+# deploy/k8s/helm/nexent/generated-persistence-values.yaml
+# deploy/k8s/helm/nexent-infrastructure/generated-values.yaml
+# deploy/k8s/helm/nexent-infrastructure/generated-runtime-values.yaml
+# deploy/k8s/helm/nexent-infrastructure/generated-secrets-values.yaml
+# deploy/k8s/helm/nexent-infrastructure/generated-persistence-values.yaml
+# offline-package/
+# frontend_standalone/
+# .pnpm-store/
+# frontend-dist/
+# model-assets/
+# *coverage_html
+*.pytest_cache
+*.coverage
+*coverage.xml
+# .sisyphus/
+# .opencode/
+# openspec/
+logs/
+# .devspace/
+# devspace.yaml
+# deploy/k8s/helm/**/*.tgz
+# deploy/k8s/helm/nexent/Chart.lock
+# deploy/k8s/helm/nexent-infrastructure/Chart.lock
+# MAC_DEVELOPMENT_GUIDE.md
+# data/
+# sdk/benchmark/.env
+# /docker/.env.bak
+# .pytest-tmp
+.pytest-tmp
+# test/ext_components/aidp/mock_servers/_state/
+# doc/mermaid
+# _doc/
+# .claude/skills/python-import-triage
+# /deploy/env/.env
+# /deploy/env/.env.bak
+# agent_repository_frontend
+# .omo/
+# .tokensave
+# .playwright-mcp/
+# .code-review-graph/
+
+# --- Detected directories (uncomment to exclude) ---
+
+# docs/
+# scripts/
+# test/
+
+# --- Test file patterns (uncomment to exclude) ---
+
+# JS / TS
+# *.test.*
+# *.spec.*
+# *.snap
+# C# / .NET
+# **/*Tests.cs
+# **/*Test.cs
+# **/*Fixture.cs
+# **/*.Tests.csproj
+# Java / Kotlin
+# **/src/test/**
+# **/*Test.java
+# **/*IT.java
+# **/*Spec.kt
+# Go
+# **/*_test.go
+# C++
+# **/*_test.cc
+# **/*_test.cpp
+# **/*_test.cxx
+# **/*Test.cc
+# **/*Test.cpp
+# **/*_unittest.cc
+# **/*_unittest.cpp
+# **/*_browsertest.cc
+# **/*_benchmark.cc
+# **/*Benchmark.cpp
+# Python
+# **/test_*.py
+# **/*_test.py
+# **/tests.py
+# **/conftest.py
+# Rust
+# **/tests.rs
+# **/test_*.rs
+# **/*_test.rs
+# **/bench_*.rs
+# **/*_bench.rs
+# Ruby
+# **/*_spec.rb
+# **/*_test.rb
+# **/test_*.rb
+# **/spec_helper.rb
+# **/test_helper.rb
+# **/rails_helper.rb
+# Swift
+# **/Tests/**/*.swift
+# **/Specs/**/*.swift

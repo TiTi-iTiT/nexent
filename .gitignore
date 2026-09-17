@@ -80,6 +80,8 @@ sdk/benchmark/.env
 
 .venv
 
+.ua/.trash**
+
 .pytest-tmp
 test/ext_components/aidp/mock_servers/_state/
 doc/mermaid
